@@ -1,73 +1,46 @@
-# React + TypeScript + Vite
+# Vora
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Vora is a premium modern music streaming platform featuring a beautiful UI built with React, TypeScript, and Vite. It provides an immersive aesthetic experience with features like playlist aggregation, library management, and snappy dynamic navigation.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Modern & Dynamic Real-time UI**: Designed with customized dark and light color schemas. It utilizes seamless transition states natively and hover-triggered micro-animations using custom Tailwind CSS utility sets.
+- **Component Flow**: Fluid layout components wrapped meticulously including the `Navbar`, main `Sidebar`, core browsing spaces, and real-time interactive overlays.
+- **Type Safety**: Fully typed data models using TypeScript giving developers reliable integrations and components logic.
+- **Performance Scaffold**: Runs off Vite and powered by React to maintain unparalleled modularity and loading speeds. 
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Frontend Framework**: React
+- **Language**: TypeScript
+- **Bundler**: Vite
+- **Styling & Assets**: Tailwind CSS, and `lucide-react` for high-quality scalable vector graphics.
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Prerequisites
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+You need Node.js and npm installed locally.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Installation
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/rrit58/Vora.git
+   cd Vora
+   ```
+
+2. Navigate to the frontend folder and install the dependencies:
+   ```bash
+   cd frontend
+   npm install
+   ```
+
+### Running the Application
+
+To kickstart the frontend development server:
+```bash
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Visit [http://localhost:5173](http://localhost:5173) in your web browser to use and preview Vora natively.
