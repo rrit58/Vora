@@ -1,6 +1,4 @@
 import { Play } from "lucide-react";
-// import { motion } from "framer-motion";
-import { useNowPlaying } from "../context/NowPlayingContext";
 
 const recentItems = [
   { title: "Starboy", artist: "The Weeknd", img: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=300&h=300&fit=crop" },
@@ -11,25 +9,17 @@ const recentItems = [
   { title: "drivers license", artist: "Olivia Rodrigo", img: "https://images.unsplash.com/photo-1487180144351-b8472da7d491?w=300&h=300&fit=crop" },
 ];
 
-export function RecentlyPlayed() {
-  const { setSelectedTrack } = useNowPlaying();
-
+const RecentlyPlayed = () => {
   return (
     <section>
       <h2 className="text-xl lg:text-2xl font-bold text-foreground mb-4">Recently Played</h2>
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-6 gap-3 lg:gap-4">
-        {recentItems.map((item, i) => (
-          <div
-            key={item.title}
-            className="group relative bg-card rounded-lg p-3 card-hover cursor-pointer"
-            onClick={() => setSelectedTrack(item)}
-          >
+        {recentItems.map((item) => (
+          <div key={item.title} className="group relative bg-card rounded-lg p-3 card-hover cursor-pointer">
             <div className="relative aspect-square rounded-md overflow-hidden mb-3">
               <img src={item.img} alt={item.title} className="h-full w-full object-cover" />
-              <div className="play-overlay absolute bottom-2 right-2">
-                <div className="h-10 w-10 rounded-full bg-primary flex items-center justify-center shadow-lg shadow-primary/30">
-                  <Play className="h-4 w-4 text-primary-foreground ml-0.5" fill="currentColor" />
-                </div>
+              <div className="play-overlay absolute bottom-2 right-2 h-10 w-10 rounded-full bg-primary flex items-center justify-center shadow-lg shadow-primary/30">
+                <Play className="h-4 w-4 text-primary-foreground ml-0.5" fill="currentColor" />
               </div>
             </div>
             <p className="text-sm font-semibold text-foreground truncate">{item.title}</p>
@@ -40,3 +30,5 @@ export function RecentlyPlayed() {
     </section>
   );
 }
+
+export default RecentlyPlayed

@@ -1,5 +1,5 @@
 import { X, MapPin, Calendar, ExternalLink } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+// import { motion, AnimatePresence } from "framer-motion";
 import { useNowPlaying } from "../context/NowPlayingContext";
 
 const artistBios: Record<string, string> = {
@@ -51,23 +51,16 @@ export function NowPlayingSidebar() {
   const { selectedTrack, setSelectedTrack } = useNowPlaying();
 
   return (
-    <AnimatePresence>
+    <div>
       {selectedTrack && (
         <>
           {/* Mobile overlay backdrop */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+          <div
             className="fixed inset-0 bg-black/60 z-40 lg:hidden"
             onClick={() => setSelectedTrack(null)}
           />
 
-          <motion.aside
-            initial={{ x: 320, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            exit={{ x: 320, opacity: 0 }}
-            transition={{ type: "spring", damping: 28, stiffness: 300 }}
+          <aside
             className="fixed right-0 top-0 bottom-0 z-50 w-[320px] lg:w-[340px] bg-sidebar border-l border-sidebar-border flex flex-col overflow-hidden"
           >
             {/* Header */}
@@ -85,10 +78,7 @@ export function NowPlayingSidebar() {
             <div className="flex-1 overflow-y-auto hide-scrollbar px-5 py-5 space-y-6">
               {/* Album art & track info */}
               <div className="space-y-4">
-                <motion.div
-                  initial={{ scale: 0.9, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  transition={{ delay: 0.1 }}
+                <div
                   className="aspect-square rounded-xl overflow-hidden shadow-2xl"
                 >
                   <img
@@ -96,7 +86,7 @@ export function NowPlayingSidebar() {
                     alt={selectedTrack.title}
                     className="h-full w-full object-cover"
                   />
-                </motion.div>
+                </div>
                 <div>
                   <h4 className="text-lg font-bold text-foreground">{selectedTrack.title}</h4>
                   <p className="text-sm text-muted-foreground">{selectedTrack.artist}</p>
@@ -104,23 +94,17 @@ export function NowPlayingSidebar() {
               </div>
 
               {/* Artist Bio */}
-              <motion.div
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.15 }}
+              <div
                 className="space-y-2"
               >
                 <h5 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">About the Artist</h5>
                 <p className="text-sm text-foreground/80 leading-relaxed">
                   {artistBios[selectedTrack.artist] || getFallbackBio(selectedTrack.artist)}
                 </p>
-              </motion.div>
+              </div>
 
               {/* Tour Dates */}
-              <motion.div
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.2 }}
+              <div
                 className="space-y-3"
               >
                 <h5 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Upcoming Tour Dates</h5>
@@ -149,11 +133,11 @@ export function NowPlayingSidebar() {
                 ) : (
                   <p className="text-sm text-muted-foreground italic">No upcoming tour dates announced.</p>
                 )}
-              </motion.div>
+              </div>
             </div>
-          </motion.aside>
+          </aside>
         </>
       )}
-    </AnimatePresence>
+    </div>
   );
 }

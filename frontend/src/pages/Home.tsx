@@ -1,4 +1,3 @@
-import React from 'react'
 import Navbar from '../components/Navbar.tsx'
 import Sidebar from '../components/Sidebar.tsx'
 import Main from '../components/Main.tsx'
